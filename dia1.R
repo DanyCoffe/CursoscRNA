@@ -66,12 +66,13 @@ usethis::use_git() #
 usethis::use_github()
 
 # escribimos un nuevo archivo e indicamos dónde lo queremos
-writeLines("hola", "R/prueba.R")
+writeLines("hola", here::here, ("R","prueba.R"))
+writeLines("hola", "D:/CursoscRNAseq/CursoscRNA/prueba.R")
 # también podemos hacerlo así
 usethis::use_r("archivo-prueba-github.R") # añade archivo al directorio R del proyecto actual
 
 # Por ejemplo podríamos probar añadir algo nuevo
-gert::git_add("R/archivo-prueba-github.R")
+gert::git_add("D:/CursoscRNAseq/CursoscRNA/archivo-prueba-github.R")
 
 # añadimos commit de lo que se hizo
 gert::git_commit("se subio archivo prueba")
@@ -81,3 +82,9 @@ gert::git_log()
 
 # sube tus cambios del repo local a los de github
 gert::git_push() # COMANDO IMPORTANTE
+
+#######################################
+usethis::create_project("DanyCoffe.github.io")
+
+usethis::use_git()
+usethis::use_github()
