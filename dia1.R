@@ -33,7 +33,7 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 #####
 #Creando un proyecto
 
-usethis::create_project("D:/Winter/SC_RNA/cdsb2021_scRNAseq_notas")
+usethis::create_project("D:/CursoscRNAseq/CursoscRNA")
 
 usethis::create_github_token()
 
@@ -57,3 +57,27 @@ usethis::edit_git_config() # que abre el archivo .gitconfig
 # [user]
 #   name = N O M B R E
 #   email = correodeGithub
+gh::gh_whoami()
+
+# inicializar el repositorio de Git
+usethis::use_git() #
+
+# conectar tu repositorio local de Git con los servidores de GitHub
+usethis::use_github()
+
+# escribimos un nuevo archivo e indicamos dónde lo queremos
+writeLines("hola", "R/prueba.R")
+# también podemos hacerlo así
+usethis::use_r("archivo-prueba-github.R") # añade archivo al directorio R del proyecto actual
+
+# Por ejemplo podríamos probar añadir algo nuevo
+gert::git_add("R/archivo-prueba-github.R")
+
+# añadimos commit de lo que se hizo
+gert::git_commit("se subio archivo prueba")
+
+# nos da info de los commits
+gert::git_log()
+
+# sube tus cambios del repo local a los de github
+gert::git_push() # COMANDO IMPORTANTE
